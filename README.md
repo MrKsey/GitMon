@@ -1,4 +1,5 @@
 # GitMon
+### A program for automating the polling of commits and releases sections of any repository on github.com and performing the actions specified by the user.
 Программа для автоматизации опроса разделов commits и releases любого репозитария на github.com и выполнения действий, заданных пользователем.
 
 # Примеры использования:
