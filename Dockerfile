@@ -14,7 +14,8 @@ RUN mkdir -p /usr/src/gitmon/data \
 && cp /tmp/*.py /usr/src/gitmon/ \
 && cp /tmp/requirements.txt /usr/src/gitmon/ \
 && cp /tmp/gitmon.conf /usr/src/gitmon/data/ \
-&& pip install --no-cache-dir -r /usr/src/gitmon/requirements.txt
+&& pip install --no-cache-dir -r /usr/src/gitmon/requirements.txt \
+&& rm -rf /tmp/*
 
 WORKDIR /usr/src/gitmon
 
