@@ -14,13 +14,13 @@
 См. /examples/gitmon.conf (https://github.com/MrKsey/GitMon/tree/master/examples)
 
 ## Требования:
-python 3.6+
+Python 3.6+
 
 ## Запуск:
 - отредактировать конфигурационный файл gitmon.conf
-- запустить: python gitmon.py --config /path/to/gitmon.conf
+- выполнить: python gitmon.py --config /path/to/gitmon.conf
 
-## Запуск в DOCKER:
+## Запуск в DOCKER-контейнере:
 
 Создайте локальный каталог (например /home/gitmon), отредактируйте и поместите туда файл "gitmon.conf" и подключите этот каталог к каталогу контейнера "/usr/src/gitmon/data" (пример ниже).
 
