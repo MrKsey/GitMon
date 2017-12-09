@@ -45,14 +45,14 @@ def setup_env():
     return True
 
 
-def read_options(config_path=cfg.CONFIG_PATH):
+def read_options(config_path):
     """Чтение конфигурационного файла и установка глобальных переменных из cfg.py
 
     :param config_path: путь к конфигурационному файлу
     :return: True or False
     """
     config = configparser.ConfigParser()
-    if config.read(config_path):
+    if config.read(config_path, encoding='utf-8'):
         repo_list = config.sections()
         for repo in repo_list:
             cfg.OPTIONS[repo] = {'commits': config[repo].getint('commits', 0),
@@ -60,7 +60,7 @@ def read_options(config_path=cfg.CONFIG_PATH):
                                  'only_new': config[repo].getboolean('only_new', True),
                                  'github_token': config[repo].get('github_token', ''),
                                  'line_prefix': config[repo].get('line_prefix', ''),
-                                 'log_detail': config[repo].get('log_detail', 'full'),
+                                 'log_detail': config[repo].get('log_detail', 'medium'),
                                  'file_max_size': config[repo].getint('file_max_size', 1000000),
                                  'log_text': config[repo].get('log_text', ''),
                                  'log_start': config[repo].get('log_start', ''),

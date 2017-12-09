@@ -131,7 +131,7 @@ def action_file(commands, args, repos, data, options=cfg.OPTIONS):
             data_for_actions = get_data_for_actions(commands, repos, data, options)
             file = args
             if data_for_actions and file:
-                with open(file, 'a+', newline='\n', buffering=True) as logfile:
+                with open(file, 'a+', newline='\n', buffering=True, encoding='utf-8') as logfile:
                     logfile.seek(0, 0)
                     content = logfile.read()
                 max_len = options[repos]['file_max_size']
@@ -143,7 +143,7 @@ def action_file(commands, args, repos, data, options=cfg.OPTIONS):
                         cfg.LOGGER.info(f'File {file} reached {max_len} strings. Truncating...')
                         content = content[0:max_len]
                     content = '\n'.join(i for i in content) + '\n'
-                    with open(file, 'w+', newline='\n', buffering=True) as logfile:
+                    with open(file, 'w+', newline='\n', buffering=True, encoding='utf-8') as logfile:
                         logfile.write(content)
                 elif commands[2].lower() == 'insert':
                     cfg.LOGGER.info(f'Inserting {repos} changelogs to top of the file {args}')
@@ -153,7 +153,7 @@ def action_file(commands, args, repos, data, options=cfg.OPTIONS):
                         cfg.LOGGER.info(f'File {file} reached {max_len} strings. Truncating...')
                         content = content[0:max_len]
                     content = '\n'.join(i for i in content) + '\n'
-                    with open(file, 'w+', newline='\n', buffering=True) as logfile:
+                    with open(file, 'w+', newline='\n', buffering=True, encoding='utf-8') as logfile:
                         logfile.write(content)
                 elif commands[2].lower() == 'append':
                     cfg.LOGGER.info(f'Appending {repos} changelogs to end of the file {args}')
@@ -165,13 +165,13 @@ def action_file(commands, args, repos, data, options=cfg.OPTIONS):
                         cfg.LOGGER.info(f'File {file} reached {max_len} strings. Truncating...')
                         content = content[data_len - max_len - 1:data_len]
                     content = '\n'.join(i for i in content) + '\n'
-                    with open(file, 'w+', newline='\n', buffering=True) as logfile:
+                    with open(file, 'w+', newline='\n', buffering=True, encoding='utf-8') as logfile:
                         logfile.write(content)
                 elif commands[2].lower() == 'delete':
                     cfg.LOGGER.info(f'Deleting old {repos} changelogs from file {args}')
                     for old_line in data_for_actions.splitlines():
                         content = content.replace(old_line, '').lstrip()
-                    with open(file, 'w+', newline='\n', buffering=True) as logfile:
+                    with open(file, 'w+', newline='\n', buffering=True, encoding='utf-8') as logfile:
                         logfile.write(content)
                 else:
                     cfg.LOGGER.error(f'Error in {repos} local file actions configuration. Reason: unknown command {commands[2]}.')
@@ -307,7 +307,7 @@ def action_github(commands, args, repos, data, options=cfg.OPTIONS):
                         cfg.LOGGER.info(f'Deleting old {repos} changelogs from file {file}')
                         for old_line in data_for_actions.splitlines():
                             content = content.replace(old_line, '')
-                    if repo.update_file(file, f'GitMon update file with {repos} changelog', content.lstrip(), gh_content.sha):
+                    if repo.update_file(file, f'GitMon update file {file} with {repos} changelog', content.lstrip(), gh_content.sha):
                         return True
             else:
                 cfg.LOGGER.info(f'Unable to connect to user {user.name} github. Check the token.')

@@ -136,7 +136,7 @@ def filter_new_logs(repos, data, old_data, options=cfg.OPTIONS):
 
 if __name__ == '__main__':
     setup.setup_env()  # reading and setting CONFIG_PATH and DATA_PATH in cfg.py
-    if setup.read_options():  # reading configuration file from CONFIG_PATH
+    if setup.read_options(cfg.CONFIG_PATH):  # reading configuration file from CONFIG_PATH
         cfg.LOGGER = setup.setup_log()
         cfg.LOGGER.info(f'|===>')
         cfg.LOGGER.info(f'We begin to collect data from the {list(cfg.OPTIONS.keys())} github repositories.')
@@ -153,7 +153,7 @@ if __name__ == '__main__':
                             cfg.LOGGER.info(f'No new changelogs for {repos}.')
                             continue
                     actions.process_actions(repos, data)  # process the data in accordance with the configuration file
-                    setup.save_data(data)  # save data to data.json
+                setup.save_data(data)  # save data to data.json
                 if cfg.UPDATE_INTERVAL == 0:
                     cfg.LOGGER.info(f'Processing complete. Exiting...')
                     break
