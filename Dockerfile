@@ -8,7 +8,7 @@
 FROM python:alpine
 MAINTAINER Bob <kcey@mail.ru>
 
-COPY gitmon.py cfg.py setup.py actions.py requirements.txt examples/gitmon.conf /tmp
+COPY gitmon.py cfg.py setup.py actions.py requirements.txt examples/gitmon.conf /tmp/
 
 RUN mkdir -p /usr/src/gitmon/data \
 && cp /tmp/*.py /usr/src/gitmon/ \
