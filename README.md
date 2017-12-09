@@ -14,11 +14,18 @@
 См. /examples/gitmon.conf (https://github.com/MrKsey/GitMon/tree/master/examples)
 
 ## Требования:
-Python 3.6+
+- Python 3.6+
+- модули python-dateutil и PyGithub. Их необходимо установить перед первым запуском программы:
+```
+pip install python-dateutil PyGithub
+```
 
 ## Запуск:
 - отредактировать конфигурационный файл gitmon.conf
-- выполнить: python gitmon.py --config /path/to/gitmon.conf
+- выполнить:
+```
+python gitmon.py --config /path/to/gitmon.conf
+```
 
 ## Запуск в DOCKER-контейнере:
 
