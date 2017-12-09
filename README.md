@@ -11,7 +11,7 @@
    3) При появлении изменений в любом из проектов выполнить произвольный shell-скрипт.
    
 ## Примеры конфигурационного файла:
-См. /examples/gitmon.conf
+См. /examples/gitmon.conf (https://github.com/MrKsey/GitMon/tree/master/examples)
 
 ## Требования:
 python 3.6+
