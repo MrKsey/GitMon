@@ -17,5 +17,15 @@
 python 3.6+
 
 # Запуск:
-- отредактировать конфигурационный файл
+- отредактировать конфигурационный файл gitmon.conf
 - запустить: python gitmon.py --config /path/to/gitmon.conf
+
+# Запуск в DOCKER:
+
+Создайте локальный каталог (например /home/gitmon), отредактируйте и поместите туда файл "gitmon.conf" и подключите этот каталог к каталогу контейнера "/usr/src/gitmon/data" (пример ниже).
+
+Create local directory (like /home/gitmon), edit and put the "gitmon.conf" file there and connect this directory to the container directory "/usr/src/gitmon/data":
+```
+docker pull ksey/gitmon
+docker run --name GitMon -d -v /home/gitmon:/usr/src/gitmon/data
+```
