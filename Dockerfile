@@ -3,7 +3,7 @@
 # sections of any repository on github.com and performing
 # the actions specified by the user.
 #
-# See gitmon.conf
+# See gitmon.conf - https://github.com/MrKsey/GitMon/tree/master/examples
 #
 FROM python:alpine
 MAINTAINER Bob <kcey@mail.ru>
