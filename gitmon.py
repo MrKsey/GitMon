@@ -161,7 +161,6 @@ if __name__ == '__main__':
                 time.sleep(cfg.UPDATE_INTERVAL * 60)  # repeat cycle every UPDATE_INTERVAL minutes
             else:
                 cfg.LOGGER.warn(f'Error getting data for {list(cfg.OPTIONS.keys())}.')
-                break
     else:
         print(f'Error reading configuration file {cfg.CONFIG_PATH}. Exiting...')
         exit(1)
