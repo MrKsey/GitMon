@@ -8,16 +8,13 @@
 FROM python:alpine
 MAINTAINER Bob <kcey@mail.ru>
 
-
 COPY gitmon.py cfg.py setup.py actions.py requirements.txt examples/gitmon.conf /tmp
-
 
 RUN mkdir -p /usr/src/gitmon/data \
 && cp /tmp/*.py /usr/src/gitmon/ \
 && cp /tmp/requirements.txt /usr/src/gitmon/ \
 && cp /tmp/gitmon.conf /usr/src/gitmon/data/
 && pip install --no-cache-dir -r /usr/src/gitmon/requirements.txt
-
 
 WORKDIR /usr/src/gitmon
 
