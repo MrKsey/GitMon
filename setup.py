@@ -101,24 +101,28 @@ def setup_log():
     return logger
 
 
-def save_data(data, js_file=cfg.DATA_PATH):
+def save_data(data, js_file=''):
     """Сохранение данных в файл
 
     :param data: структура типа dict
     :param js_file: путь к файлу данных
     :return:
     """
+    if not js_file:
+        js_file = cfg.DATA_PATH
     cfg.LOGGER.info(f'Saving data to {js_file}...')
     with open(js_file, 'w') as js:
         json.dump(data, js, sort_keys=False, indent=4)
 
 
-def load_data(js_file=cfg.DATA_PATH):
+def load_data(js_file=''):
     """Загрузка данных из файла и возвращение их в виде структуры dict
 
     :param js_file: путь к файлу данных
     :return:
     """
+    if not js_file:
+        js_file = cfg.DATA_PATH
     cfg.LOGGER.info(f'Loading data from {js_file}...')
     try:
         with open(js_file, 'r') as js:
