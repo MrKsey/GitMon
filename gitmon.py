@@ -149,7 +149,7 @@ if __name__ == '__main__':
                 for repos in cfg.OPTIONS.keys():
                     if cfg.OPTIONS[repos]['only_new'] and old_data:
                         data = filter_new_logs(repos, data, old_data)
-                        if old_data[repos][0] == data[repos][0]:
+                        if data and old_data and old_data[repos][0] == data[repos][0]:
                             cfg.LOGGER.info(f'No new changelogs for {repos}.')
                             continue
                     actions.process_actions(repos, data)  # process the data in accordance with the configuration file
