@@ -265,7 +265,8 @@ def action_github(commands, args, repos, data, options=cfg.OPTIONS):
                 cfg.LOGGER.info(f'Connected to {user.name} github')
                 repo = user.get_repo(commands[1])
                 cfg.LOGGER.info(f'Accessing repo {repo.full_name}')
-                file = '/' + args
+                # file = '/' + args
+                file = args
                 try:
                     repo.create_file(file, f'GitMon create file', '')
                 except:
